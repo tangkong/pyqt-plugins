@@ -352,6 +352,7 @@ class Configuration:
     qt_architecture = attr.ib()
     qt_compiler = attr.ib()
     pyqt_version = attr.ib()
+    pyqt_qt_version = attr.ib()
     pyqt_major = attr.ib()
     pyqt_source_path = attr.ib()
     platform = attr.ib()
@@ -395,6 +396,7 @@ class Configuration:
                 qt_architecture += '_64'
 
         pyqt_version = environment['PYQT_VERSION']
+        pyqt_qt_version = environment['PYQT_QT_VERSION']
 
         return cls(
             qt_version=qt_version,
@@ -402,6 +404,7 @@ class Configuration:
             qt_architecture=qt_architecture,
             qt_compiler=qt_compiler,
             pyqt_version=pyqt_version,
+            pyqt_qt_version=pyqt_qt_version,
             pyqt_major=pyqt_version.partition('.')[0],
             pyqt_source_path=build_path / 'pyqt',
             platform=platform,

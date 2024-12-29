@@ -61,11 +61,13 @@ jobs:
         qt:
           - name: 5.15.11
             pyqt_version: 5.15.11
-            qt_version: 5.15.16
+            pyqt_qt_version: 5.15.16
+            qt_version: 5.15.2
             major: 5
             tox: qt5
           - name: 6.8.1
             pyqt_version: 6.8.1
+            pyqt_qt_version: 6.8.1
             qt_version: 6.8.1
             major: 6
             tox: qt6
@@ -106,6 +108,7 @@ jobs:
     env:
       QT_VERSION: ${{ matrix.qt.qt_version }}
       PYQT_VERSION: ${{ matrix.qt.pyqt_version }}
+      PYQT_QT_VERSION: ${{ matrix.qt.pyqt_qt_version }}
 
     steps:
       - uses: actions/checkout@v3

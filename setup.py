@@ -30,6 +30,7 @@ def pad_version(v, segment_count=3):
 # TODO: really doesn't seem quite proper here and probably should come
 #       in some other way?
 pyqt_version = pad_version(os.environ.setdefault('PYQT_VERSION', '6.1.0'))
+pyqt_qt_version = pad_version(os.environ.setdefault('PYQT_QT_VERSION', '6.1.0'))
 qt_version = pad_version(os.environ.setdefault('QT_VERSION', '6.1.0'))
 qt_major_version = qt_version.partition('.')[0]
 
@@ -121,7 +122,7 @@ setuptools.setup(
         "setuptools",
         'click',
         'pyqt{}=={}'.format(qt_major_version, pyqt_version),
-        'pyqt{}-qt{}=={}'.format(qt_major_version, qt_major_version, qt_version),
+        'pyqt{}-qt{}=={}'.format(qt_major_version, qt_major_version, pyqt_qt_version),
         'qt{}-tools{}{}'.format(
             qt_major_version,
             qt_tools_version_specifier,
