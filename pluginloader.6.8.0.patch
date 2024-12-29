@@ -665,10 +665,10 @@ index 0000000..c740760
 +sys.excepthook = exception_message_box
 diff --git a/designer/generate_module_literal.py b/designer/generate_module_literal.py
 new file mode 100644
-index 0000000..cc6b4de
+index 0000000..d6f6b56
 --- /dev/null
 +++ b/designer/generate_module_literal.py
-@@ -0,0 +1,35 @@
+@@ -0,0 +1,36 @@
 +import os
 +import itertools
 +
@@ -681,7 +681,8 @@ index 0000000..cc6b4de
 +    i = iter(iterable)
 +
 +    while True:
-+        t = tuple(next(i) for _ in range(n))
++        # t = tuple(next(i) for _ in range(n))
++        t = tuple(itertools.islice(i, n))
 +
 +        if len(t) > 0:
 +            yield t
