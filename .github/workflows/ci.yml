@@ -59,8 +59,8 @@ jobs:
             action: '3.13'
             docker: '3.13'
         qt:
-          - name: 5.15.9
-            pyqt_version: 5.15.9
+          - name: 5.15.11
+            pyqt_version: 5.15.11
             qt_version: 5.15.2
             major: 5
             tox: qt5
