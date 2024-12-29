@@ -853,9 +853,14 @@ def patch_pyqt(configuration, qt_paths):
         / 'pluginloader.{}.patch'.format(configuration.pyqt_version)
     )
 
-    patchset = patch.fromfile(fspath(patch_path))
-    if patchset.apply(strip=1) != 0:
-        raise RuntimeError('Failed to apply patch')
+    subprocess.run(
+        args=['git', 'apply', fspath(patch_path)],
+        cwd=fspath(configuration.pyqt_source_path),
+    )
+
+    # patchset = patch.fromfile(fspath(patch_path))
+    # if patchset.apply(strip=1) != 0:
+    #     raise RuntimeError('Failed to apply patch')
 
 
 def build_pyqt(configuration, qt_paths):
