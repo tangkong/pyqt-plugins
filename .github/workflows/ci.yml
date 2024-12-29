@@ -59,14 +59,14 @@ jobs:
             action: '3.13'
             docker: '3.13'
         qt:
-          - name: 5.15.2
-            env: 5.15.2
-            matrix: 5.15.2
+          - name: 5.15.9
+            pyqt_version: 5.15.9
+            qt_version: 5.15.2
             major: 5
             tox: qt5
           - name: 6.8.0
-            env: 6.8.0
-            matrix: 6.8.0
+            pyqt_version: 6.8.0
+            qt_version: 6.8.0
             major: 6
             tox: qt6
         arch:
