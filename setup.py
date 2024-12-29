@@ -43,7 +43,7 @@ pyqt_plugins_version = '{}.{}'.format(
 qt_tools_wrapper_range = ['1.2', '2']
 
 # Must be False for release.  PyPI won't let you upload with a URL dependency.
-use_qt_tools_url = False
+use_qt_tools_url = True
 
 if use_qt_tools_url:
     qt_tools_url = ' @ git+https://github.com/altendky/qt-tools@main'
@@ -101,11 +101,11 @@ setuptools.setup(
         'Operating System :: MacOS :: MacOS X',
         'Operating System :: Microsoft :: Windows',
         'Programming Language :: Python :: 3',
-        'Programming Language :: Python :: 3.5',
-        'Programming Language :: Python :: 3.6',
-        'Programming Language :: Python :: 3.7',
-        'Programming Language :: Python :: 3.8',
         'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Programming Language :: Python :: 3.11',
+        'Programming Language :: Python :: 3.12',
+        'Programming Language :: Python :: 3.13',
         'Topic :: Software Development',
         'Topic :: Utilities',
     ],
@@ -115,8 +115,10 @@ setuptools.setup(
     package_dir={import_name: 'src/pyqt_plugins'},
     version=pyqt_plugins_version,
     include_package_data=True,
-    python_requires=">=3.7",
+    python_requires=">=3.9",
     install_requires=[
+        # TODO: forcing since we use pkg_resources, though we should stop using that as it is deprecated
+        "setuptools",
         'click',
         'pyqt{}=={}'.format(qt_major_version, pyqt_version),
         'pyqt{}-qt{}=={}'.format(qt_major_version, qt_major_version, qt_version),
