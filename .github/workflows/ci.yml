@@ -194,7 +194,6 @@ jobs:
         run: |
           git config --global --add safe.directory $GITHUB_WORKSPACE
       - name: Download all wheels
-      - name: Download all wheels
         uses: actions/download-artifact@v4
         with:
           pattern: '*'
