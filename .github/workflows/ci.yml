@@ -61,7 +61,7 @@ jobs:
         qt:
           - name: 5.15.11
             pyqt_version: 5.15.11
-            qt_version: 5.15.2
+            qt_version: 5.15.16
             major: 5
             tox: qt5
           - name: 6.8.0
