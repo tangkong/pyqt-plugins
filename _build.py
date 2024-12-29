@@ -854,7 +854,8 @@ def patch_pyqt(configuration, qt_paths):
     )
 
     patchset = patch.fromfile(fspath(patch_path))
-    patchset.apply(strip=1)
+    if patchset.apply(strip=1) != 0:
+        raise RuntimeError('Failed to apply patch')
 
 
 def build_pyqt(configuration, qt_paths):
