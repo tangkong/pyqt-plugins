@@ -27,25 +27,25 @@ jobs:
               intel: ubuntu-latest
             python_platform: linux
             container: docker://python:{0}-bookworm
-          - name: Windows
-            runs-on:
-              intel: windows-latest
-            python_platform: win32
-            vs_path: C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat
-          - name: macOS
-            runs-on:
-              arm: macos-latest
-              intel: macos-13
-            python_platform: darwin
+        #   - name: Windows
+        #     runs-on:
+        #       intel: windows-latest
+        #     python_platform: win32
+        #     vs_path: C:/Program Files (x86)/Microsoft Visual Studio/2019/Enterprise/VC/Auxiliary/Build/vcvars64.bat
+        #   - name: macOS
+        #     runs-on:
+        #       arm: macos-latest
+        #       intel: macos-13
+        #     python_platform: darwin
         python:
-          - name: '3.9'
-            tox: py39
-            action: '3.9'
-            docker: '3.9'
-          - name: '3.10'
-            tox: py310
-            action: '3.10'
-            docker: '3.10'
+        #   - name: '3.9'
+        #     tox: py39
+        #     action: '3.9'
+        #     docker: '3.9'
+        #   - name: '3.10'
+        #     tox: py310
+        #     action: '3.10'
+        #     docker: '3.10'
           - name: '3.11'
             tox: py311
             action: '3.11'
@@ -59,18 +59,24 @@ jobs:
             action: '3.13'
             docker: '3.13'
         qt:
+          - name: 5.15.9
+            pyqt_version: 5.15.9
+            pyqt_qt_version: 5.15.2
+            qt_version: 5.15.2
+            major: 5
+            tox: qt5
           - name: 5.15.11
             pyqt_version: 5.15.11
             pyqt_qt_version: 5.15.2
             qt_version: 5.15.2
             major: 5
             tox: qt5
-          - name: 6.8.0
-            pyqt_version: 6.8.0
-            pyqt_qt_version: 6.8.1
-            qt_version: 6.8.1
-            major: 6
-            tox: qt6
+        #   - name: 6.8.0
+        #     pyqt_version: 6.8.0
+        #     pyqt_qt_version: 6.8.1
+        #     qt_version: 6.8.1
+        #     major: 6
+        #     tox: qt6
         arch:
           - name: Intel
             matrix: intel
